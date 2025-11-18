@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../../index.css";
 import { Link } from "react-router-dom";
 
-const HelixAIIntro: React.FC = () => {
+const HelixAIWrite: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const [showCTA, setShowCTA] = useState(false);
@@ -192,8 +192,8 @@ const HelixAIIntro: React.FC = () => {
 
       <div className="pt-8 pb-6 px-4 sm:px-6 max-w-7xl mx-auto">
         <Link
+          to="/"
           className="inline-flex items-center gap-2 bg-white/80 rounded-b-md shadow text-gray-600 hover:text-gray-900 transition-colors text-sm px-2 py-1"
-          to="https://ascodelabs.com/"
         >
           ← Back
         </Link>
@@ -202,26 +202,29 @@ const HelixAIIntro: React.FC = () => {
       <section className="bg-[#F2F8FC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-8 leading-tight">
-            Helix AI : The Next Evolution of Browser-Based Intelligence,
-            Engineered for Privacy
+            The Writer's Toolkit: Effortless Drafting and Content Generation
           </h1>
           <div className="relative w-full h-56 sm:h-72 md:h-[600px] rounded-xl overflow-hidden mb-8">
             <img
-              src="/assets/image1.png"
+              src="/assets/blog2img1.png"
               alt="Helix AI browser extension interface displayed on a laptop screen, showing the privacy-first AI assistant in action with the sidepanel telescope visible, symbolizing modern digital intelligence and secure browsing"
               className="w-full h-full object-cover rounded-lg shadow-sm ring-1 ring-gray-200"
             />
           </div>
           <div className="prose max-w-none text-base md:text-lg text-justify text-gray-700 leading-relaxed mb-12">
             <p className="mb-6">
-              In the age of information overload, the modern professional
-              demands a seamless blend of efficiency and security. We rely on
-              Artificial Intelligence to summarize, translate, and generate
-              content, but often at the cost of our digital privacy. This
-              creates a critical dilemma: Do we sacrifice data security for
-              superior productivity?
+              <span className="font-semibold">The Writer's Toolkit :</span>{" "}
+              Effortless Drafting and Content Generation For professionals whose
+              work revolves around clear and compelling communication, the
+              ability to draft, refine, and generate content quickly is
+              paramount. Helix AI’s dedicated Writer Popup and its seamless
+              integration into your browser transform the act of writing from a
+              manual chore into an assisted, intelligent process. This feature
+              ensures that high-quality, context-aware content is always just a
+              click away, whether you're composing a critical email or drafting
+              a technical summary.
             </p>
-            <p>
+            <p className="mb-6">
               The launch of Helix AI—a sophisticated Chrome Extension developed
               by A S Codelabs—resolves this tension. Helix AI isn't just another
               sidebar chatbot; it is a privacy-first, context-aware AI assistant
@@ -236,7 +239,6 @@ const HelixAIIntro: React.FC = () => {
       <div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Sidebar TOC: keep left on md+ screens; show first on mobile */}
             <aside className="md:col-span-1 order-1 md:order-1">
               <div className="sticky top-8 md:top-20 bg-white/70 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-gray-200">
                 <h3 className="text-lg font-bold text-gray-900 mb-6">
@@ -250,16 +252,16 @@ const HelixAIIntro: React.FC = () => {
                     Introduction
                   </a>
                   <a
-                    href="#philosophy"
+                    href="#Writer's Toolkit"
                     className="block text-blue-600 hover:text-blue-800 transition-colors text-sm"
                   >
-                    Core Philosophy
+                    Writer's Toolkit
                   </a>
                   <a
-                    href="#hybrid"
+                    href="#The Hybrid Engine: AI Flexibility"
                     className="block text-blue-600 hover:text-blue-800 transition-colors text-sm"
                   >
-                    Hybrid Engine
+                    The Hybrid Engine: AI Flexibility
                   </a>
                   <a
                     href="#telescopes"
@@ -267,12 +269,7 @@ const HelixAIIntro: React.FC = () => {
                   >
                     Four Telescopes
                   </a>
-                  <a
-                    href="#workflow"
-                    className="block text-blue-600 hover:text-blue-800 transition-colors text-sm"
-                  >
-                    Workflow
-                  </a>
+                 
                   <a
                     href="#conclusion"
                     className="block text-blue-600 hover:text-blue-800 transition-colors text-sm"
@@ -297,12 +294,15 @@ const HelixAIIntro: React.FC = () => {
                 </h2>
                 <div className="space-y-6 text-gray-700 text-base sm:text-lg leading-relaxed">
                   <p>
-                    The way we work on the web is changing fast. Every day, we
-                    research, write, analyze, compare, and communicate directly
-                    through our browser. But most AI tools that offer help
-                    online come with a trade-off: better productivity at the
-                    cost of your personal data and privacy. Helix AI changes
-                    this equation.
+                    The "Writer's Toolkit" leverages the power of the Hybrid
+                    Engine (integrating models like Gemini, ChatGPT, Claude,
+                    etc.) to offer specialized writing support directly where
+                    you need it. By understanding the active webpage's context
+                    and your existing work, Helix AI provides an adaptive
+                    environment that significantly accelerates your content
+                    workflow. You maintain full control over the tone, length,
+                    and purpose of the output, making the AI a true co-pilot for
+                    your digital communications.
                   </p>
                   <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
                     Designed and engineered by A S Codelabs, Helix AI is a
@@ -315,75 +315,83 @@ const HelixAIIntro: React.FC = () => {
                     and intelligently.
                   </p>
                 </div>
-                <div className="mt-8">
-                  <img
-                    src="/assets/image2.png"
-                    alt="Introduction"
-                    className="w-full rounded-lg"
-                  />
-                </div>
+               
+                   <img
+                  className="mt-10 rounded-lg mb-10"
+                  src="/assets/blog2img2.png"
+                  alt="img3"
+                />
               </section>
 
-              <section id="philosophy" className=" p-8 rounded-lg">
+              <section id="Writer's Toolkit" className=" p-8 rounded-lg">
                 <h2 className="text-4xl font-bold text-gray-900 mb-8">
-                  The Core Philosophy : Productivity Meets Uncompromised Privacy
+                  Writer's Toolkit
                 </h2>
                 <div className="space-y-6 text-gray-700 text-lg leading-relaxed mb-8">
                   <p>
-                    The most significant differentiator for Helix AI is its
-                    staunch commitment to user privacy. In a marketplace where
-                    many AI tools operate as data conduits, Helix AI stands out
-                    by architecting its solution to minimize external data
-                    exposure.
+                    Details the drafting and content generation capabilities of
+                    Helix AI. Focuses on the Writer Popup and how it uses the
+                    Hybrid Engine to accelerate writing, providing control over
+                    tone and length for professional communications.
                   </p>
                   <p>
-                    According to the developer's declarations, the extension's
-                    architecture leverages the browser's built-in APIs and
-                    features a Privacy First design. This commitment translates
-                    into tangible security benefits:
+                    The "Writer's Toolkit" section should be a practical deep
+                    dive into Helix AI's content creation and refinement
+                    features. It explains how the tool turns passive browsing
+                    into active content generation.
                   </p>
                 </div>
                 <ol className="space-y-4 text-gray-700 text-lg">
                   <li>
                     <span className="font-bold min-w-fit">
-                      1. No External Servers for Context :{" "}
+                      1. The Writer Popup Interface :{" "}
                     </span>
                     <span>
-                      Crucially, the system uses built-in browser APIs and
-                      mechanisms to process webpage context, meaning your
-                      interaction data and the content of the pages you are
-                      analyzing often do not pass through external, proprietary
-                      servers.
+                      Introduces the dedicated UI (one of the "Telescopes")
+                      specifically designed for drafting. This interface
+                      minimizes distractions, focusing the user solely on text
+                      input and AI output to show how Helix AI provides an
+                      in-browser studio for content creation, moving beyond the
+                      simple chat interface.
                     </span>
                   </li>
                   <li>
                     <span className="font-bold min-w-fit">
-                      2. Data Minimization :{" "}
+                      2. Hybrid Engine for Quality Control:{" "}
                     </span>
                     <span>
-                      The developers have explicitly stated that your data is
-                      not being sold to third parties and is not being used or
-                      transferred for unrelated purposes.
+                      Explains that the toolkit utilizes the Hybrid Engine
+                      (Gemini, Claude, OpenAI) to ensure the highest quality
+                      output. Users can select the model best suited for the
+                      task (e.g., one for creative marketing copy, another for
+                      technical summaries) to emphasize flexibility and
+                      performance, demonstrating that the tool isn't limited by
+                      a single AI model's capabilities.
                     </span>
                   </li>
                   <li>
                     <span className="font-bold min-w-fit">
-                      3. User Control :{" "}
+                      3. Contextual Content Generation :{" "}
                     </span>
                     <span>
-                      By focusing on on-device or locally-processed
-                      interactions, Helix AI provides the peace of mind
-                      necessary for professionals handling sensitive research,
-                      documents, and corporate information.
+                      Details how the tool uses the context of the active
+                      webpage (article, document, email thread) as input when
+                      generating or rewriting text. This results in highly
+                      relevant and accurate content to highlight the feature of
+                      Contextual Consistency, ensuring emails reference the
+                      correct details from the page or summaries are based on
+                      the article currently being viewed.
                     </span>
                   </li>
                 </ol>
               </section>
 
-              <section id="hybrid" className="p-8 rounded-lg">
+              <section
+                id="The Hybrid Engine: AI Flexibility"
+                className="p-8 rounded-lg"
+              >
                 <h2 className="text-4xl font-bold text-gray-900 mb-8">
-                  The Hybrid Engine : Unlocking Contextual Intelligence and
-                  Flexibility
+                  The Hybrid Engine: AI Flexibility
                 </h2>
                 <div className="space-y-6 text-gray-700 text-lg leading-relaxed mb-8">
                   <p>
@@ -408,50 +416,19 @@ const HelixAIIntro: React.FC = () => {
                   <li>Claude</li>
                 </ul>
                 <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                  This powerful selection allows users to dynamically switch
-                  between models to leverage the unique strengths of each—be it
-                  the cutting-edge reasoning of Gemini, the creative generation
-                  of ChatGPT, or the expansive context windows of Claude—all
-                  within a single, unified interface.
+                  This section is essential right after a feature demonstration.
+                  It explains the core technology that makes the "Writer's
+                  Toolkit" so powerful: the ability to integrate and switch
+                  between multiple Large Language Models (LLMs) like Gemini,
+                  OpenAI, and Claude. It emphasizes the flexibility to choose
+                  the best engine for any writing task (e.g., creative writing
+                  vs. formal summarization).
                 </p>
                 <img
                   className="mt-10 rounded-lg mb-10"
                   src="/assets/image3.png"
                   alt="img3"
                 />
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    The Power of Context
-                  </h3>
-                  <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                    At its functional core, Helix AI excels at Context-Aware
-                    Chat. When you open the extension, it is instantly aware of
-                    the active webpage, allowing you to:
-                  </p>
-                  <ul className="space-y-3 text-gray-700 text-lg list-disc list-inside">
-                    <li>
-                      Ask Questions about any section of the document, article,
-                      or research paper.
-                    </li>
-                    <li>
-                      Summarize long articles instantly, extracting key
-                      sectioned points based on tone and desired length.
-                    </li>
-                    <li>
-                      Translate entire pages or selected paragraphs with
-                      automatic language detection.
-                    </li>
-                    <li>
-                      It transforms the passive act of browsing into an active
-                      research session.
-                    </li>
-                  </ul>
-                  <img
-                    className="mt-10 rounded-lg"
-                    src="/assets/image4.png"
-                    alt="img4"
-                  />
-                </div>
               </section>
 
               <section id="telescopes" className=" p-8 rounded-lg">
@@ -503,49 +480,16 @@ const HelixAIIntro: React.FC = () => {
                     powered by your chosen AI model.
                   </li>
                 </ul>
+                     <div className="mt-8">
+                  <img
+                    src="/assets/blog2img3.png"
+                    alt="img3"
+                    className="w-full rounded-lg"
+                  />
+                </div>
               </section>
 
-              <section id="workflow" className=" p-8 rounded-lg">
-                <h2 className="text-4xl font-bold text-gray-900 mb-8">
-                  Beyond Text : Masterful Workflow and Visual Analysis
-                </h2>
-                <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                  Helix AI extends its utility far beyond text manipulation,
-                  tapping into complex features essential for modern digital
-                  work:
-                </p>
-                <ul className="space-y-6 text-gray-700 text-lg mb-8">
-                  <li>
-                    <strong className="block text-gray-900 mb-2">
-                      Image Analysis:
-                    </strong>
-                    A standout feature, allowing users to attach and analyze
-                    images from webpages by simply right-clicking and adding
-                    them to the chat. This is invaluable for researching visual
-                    data, breaking down complex charts, or understanding product
-                    images in an e-commerce context.
-                  </li>
-                  <li>
-                    <strong className="block text-gray-900 mb-2">
-                      Professional Workflows:
-                    </strong>
-                    The extension is purpose-built to enhance professional
-                    productivity across multiple verticals like Marketing and
-                    CEO, Research and Learning.
-                  </li>
-                </ul>
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Helix AI offers universal compatibility, working seamlessly on
-                  virtually any website you visit, making it a truly universal
-                  tool for digital mastery.
-                </p>
-                <img
-                  className="mt-10 rounded-lg mb-10"
-                  src="/assets/image5.png"
-                  alt="img5"
-                />
-              </section>
-
+             
               <section id="conclusion" className=" p-8 rounded-lg">
                 <h2 className="text-4xl font-bold text-gray-900 mb-8">
                   Conclusion : Transform Your Browsing Experience Today
@@ -635,4 +579,4 @@ const HelixAIIntro: React.FC = () => {
   );
 };
 
-export default HelixAIIntro;
+export default HelixAIWrite;
