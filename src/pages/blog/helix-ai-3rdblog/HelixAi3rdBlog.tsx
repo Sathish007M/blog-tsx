@@ -257,6 +257,12 @@ const HelixAI3rdBlog: React.FC = () => {
                     The Hybrid Engine
                   </a>
                   <a
+                    href="#Research Re-Invented"
+                    className="block text-blue-600 hover:text-blue-800 transition-colors text-sm"
+                  >
+                    Research Re-Invented
+                  </a>
+                  <a
                     href="#Developer’s Advantage"
                     className="block text-blue-600 hover:text-blue-800 transition-colors text-sm"
                   >
@@ -344,7 +350,7 @@ const HelixAI3rdBlog: React.FC = () => {
                     the right model at the right time without interrupting your
                     flow.
                   </p>
-                   <img
+                  <img
                     src="/assets/hybridengineimg.png"
                     alt="Introduction"
                     className="w-full rounded-lg"
@@ -496,10 +502,10 @@ const HelixAI3rdBlog: React.FC = () => {
                   more.
                 </p>
                 <img
-                    className="mt-10 rounded-lg mb-10 w-full h-auto"
-                    src="/assets/dubuggingimg.png"
-                    alt="Debugging assistance interface showing Helix AI helping developers with code errors"
-                  />
+                  className="mt-10 rounded-lg mb-10 w-full h-auto"
+                  src="/assets/dubuggingimg.png"
+                  alt="Debugging assistance interface showing Helix AI helping developers with code errors"
+                />
                 <h3 className="text-3xl font-bold text-gray-700 mb-8">
                   Debugging Assistance
                 </h3>
@@ -642,13 +648,13 @@ const HelixAI3rdBlog: React.FC = () => {
                 <p className={`${paragraphClass} mb-8`}>
                   It stays out of your way but is always ready.
                 </p>
-                 
-                  <img
+
+                <img
                   className="mt-10 rounded-lg mb-10"
                   src="/assets/floatingbarimg.png"
                   alt="img5"
                 />
- 
+
                 <h3 className="text-3xl font-bold text-gray-700 mb-8">
                   The Sidepanel Telescope (Persistent Workspace)
                 </h3>
@@ -713,12 +719,12 @@ const HelixAI3rdBlog: React.FC = () => {
                   intelligence without ever sacrificing control,
                   confidentiality, or trust.
                 </p>
-                
-                 <img
-                    className="mt-10 rounded-lg mb-10 w-full h-auto"
-                    src="/assets/privacyimg.png"
-                    alt="Debugging assistance interface showing Helix AI helping developers with code errors"
-                  />
+
+                <img
+                  className="mt-10 rounded-lg mb-10 w-full h-auto"
+                  src="/assets/privacyimg.png"
+                  alt="Debugging assistance interface showing Helix AI helping developers with code errors"
+                />
                 <p className={`${paragraphClass} mb-8`}>
                   Helix AI is built on a Privacy-First Architecture:
                 </p>
@@ -738,17 +744,21 @@ const HelixAI3rdBlog: React.FC = () => {
               </section>
 
               <section id="tryhelix" className="p-8 rounded-lg">
-                <h2 className="text-4xl font-bold text-gray-900 mb-8" > Try Helix-Ai Now</h2>
+                <h2 className="text-4xl font-bold text-gray-900 mb-8">
+                  {" "}
+                  Try Helix-Ai Now
+                </h2>
                 <p className={`${paragraphClass} mb-8`}>
                   Experience the next evolution of browser-based intelligence
                   today. Helix AI gives you contextual awareness, multi-model
                   flexibility, and privacy-first architecture — all inside your
-                  Chrome browser.<br/> <br/>
+                  Chrome browser.
+                  <br /> <br />
                   Whether you’re researching, writing, analysing
                   visuals, or managing your daily workflow, Helix AI helps you
                   move faster while keeping your data secure.
                 </p>
-                 <a
+                <a
                   href="https://chromewebstore.google.com/detail/helix-ai/bjgjagobelgbchmjkgeimeadpnbgldid"
                   target="_blank"
                   rel="noopener noreferrer"
