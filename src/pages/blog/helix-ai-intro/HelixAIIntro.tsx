@@ -222,8 +222,8 @@ const HelixAIIntro: React.FC = () => {
               superior productivity?
             </p>
             <p>
-              The launch of Helix AI—a sophisticated Chrome Extension developed
-              by A S Codelabs—resolves this tension. Helix AI isn't just another
+              The launch of Helix AI - a sophisticated Chrome Extension developed
+              by A S Codelabs - resolves this tension. Helix AI isn't just another
               sidebar chatbot; it is a privacy-first, context-aware AI assistant
               designed to integrate deeply with your browsing experience,
               empowering you to work smarter while ensuring your data remains

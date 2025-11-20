@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../../../index.css";
-import { Link } from "react-router-dom";
+import { href, Link } from "react-router-dom";
 
-const HelixAIWrite: React.FC = () => {
+const HelixAIBlogPost1: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   const [showCTA, setShowCTA] = useState(false);
   const [hasShownCTA, setHasShownCTA] = useState(false);
+  const [timeWasted, setTimeWasted] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,8 +20,16 @@ const HelixAIWrite: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [hasShownCTA]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeWasted((prev) => (prev < 124 ? prev + 1 : prev));
+    }, 20);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
+      {/* Header */}
       <header className="bg-white shadow-md z-50 mt-6 rounded-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-4">
@@ -69,7 +77,7 @@ const HelixAIWrite: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Download Helix-AI{" "}
+                Download Helix-AI
               </a>
             </div>
 
@@ -103,13 +111,10 @@ const HelixAIWrite: React.FC = () => {
 
           {mobileMenuOpen && (
             <div className="fixed inset-0 z-50 md:hidden">
-              {/* backdrop */}
               <div
                 className="absolute inset-0 bg-black/50"
                 onClick={() => setMobileMenuOpen(false)}
               />
-
-              {/* panel */}
               <div className="absolute right-0 top-0 h-full w-11/12 max-w-sm bg-white shadow-2xl rounded-l-2xl overflow-auto">
                 <div className="flex items-center justify-between px-6 py-5 border-b">
                   <div className="text-2xl font-bold text-[#3D0B4D]">
@@ -190,6 +195,7 @@ const HelixAIWrite: React.FC = () => {
         </div>
       </header>
 
+      {/* Back Button */}
       <div className="pt-8 pb-6 px-4 sm:px-6 max-w-7xl mx-auto">
         <Link
           to="/"
@@ -199,46 +205,68 @@ const HelixAIWrite: React.FC = () => {
         </Link>
       </div>
 
+      {/* Hero Section */}
       <section className="bg-[#F2F8FC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-8 leading-tight">
-            The Writer's Toolkit: Effortless Drafting and Content Generation
+          {/* Time Wasted Badge */}
+          <div className="inline-block bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            ⏱️ You're losing {timeWasted} hours this year to tab switching
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            The AI Sidebar Problem Every Chrome User Faces
+            <span className="block text-[#3D0B4D] mt-2 text-2xl sm:text-3xl md:text-4xl">
+              (And How to Fix It in 30 Seconds)
+            </span>
           </h1>
-          <div className="relative w-full h-56 sm:h-72 md:h-[600px] rounded-xl overflow-hidden mb-8">
+
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl">
+            Stop switching between ChatGPT tabs 300+ times per day. Your AI
+            assistant should live where you work—not in another tab.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <a
+              href="https://chromewebstore.google.com/detail/helix-ai/bjgjagobelgbchmjkgeimeadpnbgldid"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-[#3D0B4D] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#5A1A6D] transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+              📥 Install Free Extension →
+            </a>
+            <button
+              onClick={() =>
+                window.open("https://youtu.be/Bn1N3yHpawc", "_blank")
+              }
+              className="inline-flex items-center justify-center border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold text-lg hover:border-gray-400 hover:bg-gray-50 transition"
+            >
+              ▶️ Watch 2mins Demo
+            </button>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="flex items-center flex-wrap gap-6 text-sm text-gray-600 mb-8">
+            <div>100% Free</div>
+            <div>No credit card required</div>
+          </div>
+
+          {/* Hero Image */}
+          <div className="relative w-full h-56 sm:h-72 md:h-[600px] rounded-xl overflow-hidden">
             <img
               src="/assets/blog2img1.png"
-              alt="Helix AI browser extension interface displayed on a laptop screen, showing the privacy-first AI assistant in action with the sidepanel telescope visible, symbolizing modern digital intelligence and secure browsing"
+              alt="Helix AI sidebar showing contextual AI assistance directly within the browser"
               className="w-full h-full object-cover rounded-lg shadow-sm ring-1 ring-gray-200"
             />
-          </div>
-          <div className="prose max-w-none text-base md:text-lg text-justify text-gray-700 leading-relaxed mb-12">
-            <p className="mb-6">
-              <span className="font-semibold">The Writer's Toolkit :</span>{" "}
-              Effortless Drafting and Content Generation For professionals whose
-              work revolves around clear and compelling communication, the
-              ability to draft, refine, and generate content quickly is
-              paramount. Helix AI’s dedicated Writer Popup and its seamless
-              integration into your browser transform the act of writing from a
-              manual chore into an assisted, intelligent process. This feature
-              ensures that high-quality, context-aware content is always just a
-              click away, whether you're composing a critical email or drafting
-              a technical summary.
-            </p>
-            <p className="mb-6">
-              The launch of Helix AI—a sophisticated Chrome Extension developed
-              by A S Codelabs—resolves this tension. Helix AI isn't just another
-              sidebar chatbot; it is a privacy-first, context-aware AI assistant
-              designed to integrate deeply with your browsing experience,
-              empowering you to work smarter while ensuring your data remains
-              yours.
-            </p>
           </div>
         </div>
       </section>
 
+      {/* Main Content */}
       <div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Sidebar Navigation */}
             <aside className="md:col-span-1 order-1 md:order-1">
               <div className="sticky top-8 md:top-20 bg-white/70 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-gray-200">
                 <h3 className="text-lg font-bold text-gray-900 mb-6">
@@ -246,307 +274,594 @@ const HelixAIWrite: React.FC = () => {
                 </h3>
                 <nav className="space-y-3">
                   <a
-                    href="#introduction"
-                    className="block text-blue-600 hover:text-blue-800 transition-colors text-sm"
+                    href="#tab-switching-tax"
+                    className="block text-[#3D0B4D] hover:text-[#5A1A6D] transition-colors text-sm"
                   >
-                    Introduction
+                    The Tab-Switching Tax
                   </a>
                   <a
-                    href="#Writer's Toolkit"
-                    className="block text-blue-600 hover:text-blue-800 transition-colors text-sm"
+                    href="#day-before"
+                    className="block text-[#3D0B4D] hover:text-[#5A1A6D] transition-colors text-sm"
                   >
-                    Writer's Toolkit
+                    A Day Before Helix
                   </a>
                   <a
-                    href="#The Hybrid Engine: AI Flexibility"
-                    className="block text-blue-600 hover:text-blue-800 transition-colors text-sm"
+                    href="#daily-damage"
+                    className="block text-[#3D0B4D] hover:text-[#5A1A6D] transition-colors text-sm"
                   >
-                    The Hybrid Engine: AI Flexibility
+                    The Daily Damage
                   </a>
                   <a
-                    href="#telescopes"
-                    className="block text-blue-600 hover:text-blue-800 transition-colors text-sm "
+                    href="#better-way"
+                    className="block text-[#3D0B4D] hover:text-[#5A1A6D] transition-colors text-sm"
                   >
-                    Four Telescopes
+                    There's a Better Way
                   </a>
-                 
+                  <a
+                    href="#day-after"
+                    className="block text-[#3D0B4D] hover:text-[#5A1A6D] transition-colors text-sm"
+                  >
+                    Same Day With Helix
+                  </a>
+                  <a
+                    href="#features"
+                    className="block text-[#3D0B4D] hover:text-[#5A1A6D] transition-colors text-sm"
+                  >
+                    Why Users Love Helix
+                  </a>
+                  <a
+                    href="#quick-win"
+                    className="block text-[#3D0B4D] hover:text-[#5A1A6D] transition-colors text-sm"
+                  >
+                    Your First 5 Minutes
+                  </a>
                   <a
                     href="#conclusion"
-                    className="block text-blue-600 hover:text-blue-800 transition-colors text-sm"
+                    className="block text-[#3D0B4D] hover:text-[#5A1A6D] transition-colors text-sm"
                   >
-                    Conclusion
-                  </a>
-                  <a
-                    href="#tryhelix"
-                    className="block text-blue-600 hover:text-blue-800 transition-colors text-sm"
-                  >
-                    Try Helix AI Now
+                    Stop Losing Time Today
                   </a>
                 </nav>
               </div>
             </aside>
 
-            {/* Main Content */}
+            {/* Article Content */}
             <article className="md:col-span-3 order-2 md:order-2 space-y-16">
-              <section id="introduction" className=" p-8 rounded-lg">
+              {/* Section 1: Tab-Switching Tax */}
+              <section id="tab-switching-tax" className="p-8 rounded-lg">
                 <h2 className="text-4xl font-bold text-gray-900 mb-8">
-                  Introduction
+                  The Tab-Switching Tax: Your Hidden Productivity Killer
                 </h2>
                 <div className="space-y-6 text-gray-700 text-base sm:text-lg leading-relaxed">
                   <p>
-                    The "Writer's Toolkit" leverages the power of the Hybrid
-                    Engine (integrating models like Gemini, ChatGPT, Claude,
-                    etc.) to offer specialized writing support directly where
-                    you need it. By understanding the active webpage's context
-                    and your existing work, Helix AI provides an adaptive
-                    environment that significantly accelerates your content
-                    workflow. You maintain full control over the tone, length,
-                    and purpose of the output, making the AI a true co-pilot for
-                    your digital communications.
+                    You'll switch tabs 300+ times today. That's not a guess—it's
+                    backed by productivity research on knowledge workers. Every
+                    switch carries a hidden tax: the mental effort to relocate
+                    context, the physical action of clicking, and the cognitive
+                    load of remembering what you were doing.
                   </p>
-                  <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-                    Designed and engineered by A S Codelabs, Helix AI is a
-                    privacy-first browser assistant that understands the page
-                    you're on, responds instantly, and helps you work smarter
-                    without sending your sensitive information to unknown
-                    servers. Whether you're reading articles, drafting content,
-                    analyzing visuals, or studying documentation, Helix AI stays
-                    right inside the browser to support your workflow — securely
-                    and intelligently.
+                  <p>
+                    Researchers call this "attention residue." When you jump
+                    from a research article to ChatGPT, part of your brain stays
+                    stuck on the previous task. It takes an average of 23
+                    minutes to fully regain deep focus after an interruption.
+                  </p>
+                  <p>
+                    Multiply that 45-second tab switch by 300 daily instances.
+                    You're losing 2.1 hours every single day—not to productive
+                    work, but to the mechanics of moving between tabs. That's
+                    over 500 hours per year, or 12.5 full workweeks, sacrificed
+                    to context switching.
                   </p>
                 </div>
-               
-                   <img
-                  className="mt-10 rounded-lg mb-10"
-                  src="/assets/blog2img2.png"
-                  alt="img3"
-                />
               </section>
 
-              <section id="Writer's Toolkit" className=" p-8 rounded-lg">
+              {/* Section 2: Day Before Helix */}
+              <section id="day-before" className="p-8 rounded-lg">
                 <h2 className="text-4xl font-bold text-gray-900 mb-8">
-                  Writer's Toolkit
+                  A Day in Your Life: The Before Story
                 </h2>
-                <div className="space-y-6 text-gray-700 text-lg leading-relaxed mb-8">
-                  <p>
-                    Details the drafting and content generation capabilities of
-                    Helix AI. Focuses on the Writer Popup and how it uses the
-                    Hybrid Engine to accelerate writing, providing control over
-                    tone and length for professional communications.
-                  </p>
-                  <p>
-                    The "Writer's Toolkit" section should be a practical deep
-                    dive into Helix AI's content creation and refinement
-                    features. It explains how the tool turns passive browsing
-                    into active content generation.
-                  </p>
+                <div className="space-y-8">
+                  {/* Scenario 1 */}
+                  <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
+                    <p className="text-gray-700 text-lg mb-4 font-semibold">
+                      ⏰ 9:47 AM: Reading a Research Article
+                    </p>
+                    <p className="text-gray-600 mb-4">
+                      You encounter a complex technical term that needs
+                      clarification. Here's what happens next:
+                    </p>
+                    <ul className="space-y-2 text-gray-600 ml-6">
+                      <li>→ Highlight and copy the term</li>
+                      <li>→ Open a new tab</li>
+                      <li>→ Navigate to ChatGPT (if you remember the URL)</li>
+                      <li>→ Wait for the page to load</li>
+                      <li>→ Paste the term and type your question</li>
+                      <li>→ Wait for the AI response</li>
+                      <li>→ Read and try to remember it</li>
+                      <li>→ Switch back to your article</li>
+                      <li>
+                        →{" "}
+                        <em className="text-red-600 font-semibold">
+                          "Wait... where was I?"
+                        </em>
+                      </li>
+                      <li>→ Scroll to find your place again</li>
+                    </ul>
+                    <div className="mt-4 p-4 bg-red-100 rounded">
+                      <p className="text-red-700 font-semibold">
+                        ⏱️ Time wasted: 45 seconds
+                      </p>
+                      <p className="text-red-700">💔 Flow state: Broken</p>
+                    </div>
+                  </div>
+
+                  {/* Scenario 2 */}
+                  <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
+                    <p className="text-gray-700 text-lg mb-4 font-semibold">
+                      ⏰ 11:23 AM: Writing an Email
+                    </p>
+                    <p className="text-gray-600 mb-4">
+                      Your draft sounds too casual. You need to make it more
+                      professional:
+                    </p>
+                    <ul className="space-y-2 text-gray-600 ml-6">
+                      <li>→ Select and copy your entire draft</li>
+                      <li>→ Switch to your ChatGPT tab (which one was it?)</li>
+                      <li>→ Scroll through previous conversations</li>
+                      <li>→ Give up and start a new chat</li>
+                      <li>→ Paste draft and ask for rewrite</li>
+                      <li>→ Wait for response</li>
+                      <li>→ Copy the new version</li>
+                      <li>→ Switch back to email</li>
+                      <li>→ Replace old text with new text</li>
+                      <li>→ Re-read to make sure it makes sense</li>
+                    </ul>
+                    <div className="mt-4 p-4 bg-red-100 rounded">
+                      <p className="text-red-700 font-semibold">
+                        ⏱️ Time wasted: 1 minute 12 seconds
+                      </p>
+                      <p className="text-red-700">😤 Momentum: Lost</p>
+                    </div>
+                  </div>
+
+                  {/* Scenario 3 */}
+                  <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
+                    <p className="text-gray-700 text-lg mb-4 font-semibold">
+                      ⏰ 2:15 PM: Product Page in Foreign Language
+                    </p>
+                    <p className="text-gray-600 mb-4">
+                      You're researching a product, but the specifications are
+                      in another language:
+                    </p>
+                    <ul className="space-y-2 text-gray-600 ml-6">
+                      <li>→ Open Google Translate in a new tab</li>
+                      <li>→ Copy the product description</li>
+                      <li>→ Paste into Google Translate</li>
+                      <li>→ Read the result... it doesn't make sense</li>
+                      <li>→ Try ChatGPT instead for better translation</li>
+                      <li>→ Open ChatGPT tab</li>
+                      <li>→ Copy-paste dance again</li>
+                      <li>→ Get translation</li>
+                      <li>→ Switch back to product page</li>
+                      <li>→ Forget which spec you were checking</li>
+                    </ul>
+                    <div className="mt-4 p-4 bg-red-100 rounded">
+                      <p className="text-red-700 font-semibold">
+                        ⏱️ Time wasted: 58 seconds
+                      </p>
+                      <p className="text-red-700">😩 Patience: Gone</p>
+                    </div>
+                  </div>
                 </div>
-                <ol className="space-y-4 text-gray-700 text-lg">
-                  <li>
-                    <span className="font-bold min-w-fit">
-                      1. The Writer Popup Interface :{" "}
-                    </span>
-                    <span>
-                      Introduces the dedicated UI (one of the "Telescopes")
-                      specifically designed for drafting. This interface
-                      minimizes distractions, focusing the user solely on text
-                      input and AI output to show how Helix AI provides an
-                      in-browser studio for content creation, moving beyond the
-                      simple chat interface.
-                    </span>
-                  </li>
-                  <li>
-                    <span className="font-bold min-w-fit">
-                      2. Hybrid Engine for Quality Control:{" "}
-                    </span>
-                    <span>
-                      Explains that the toolkit utilizes the Hybrid Engine
-                      (Gemini, Claude, OpenAI) to ensure the highest quality
-                      output. Users can select the model best suited for the
-                      task (e.g., one for creative marketing copy, another for
-                      technical summaries) to emphasize flexibility and
-                      performance, demonstrating that the tool isn't limited by
-                      a single AI model's capabilities.
-                    </span>
-                  </li>
-                  <li>
-                    <span className="font-bold min-w-fit">
-                      3. Contextual Content Generation :{" "}
-                    </span>
-                    <span>
-                      Details how the tool uses the context of the active
-                      webpage (article, document, email thread) as input when
-                      generating or rewriting text. This results in highly
-                      relevant and accurate content to highlight the feature of
-                      Contextual Consistency, ensuring emails reference the
-                      correct details from the page or summaries are based on
-                      the article currently being viewed.
-                    </span>
-                  </li>
-                </ol>
               </section>
 
+              {/* Section 3: Daily Damage */}
               <section
-                id="The Hybrid Engine: AI Flexibility"
-                className="p-8 rounded-lg"
+                id="daily-damage"
+                className="p-8 rounded-lg bg-gray-900 text-white"
               >
-                <h2 className="text-4xl font-bold text-gray-900 mb-8">
-                  The Hybrid Engine: AI Flexibility
-                </h2>
-                <div className="space-y-6 text-gray-700 text-lg leading-relaxed mb-8">
-                  <p>
-                    Helix AI moves beyond the limitations of single-model
-                    extensions by offering a true Hybrid AI Model. Users are not
-                    locked into one specific large language model (LLM);
-                    instead, they have the unprecedented flexibility to choose
-                    the best engine for the task at hand.
-                  </p>
-                  <p>
-                    The extension is engineered to integrate with
-                    industry-leading models, including:
+                <h2 className="text-3xl font-bold mb-6">The Daily Damage</h2>
+                <div className="grid md:grid-cols-3 gap-6 text-center">
+                  <div className="bg-gray-800 p-6 rounded-lg">
+                    <div className="text-5xl font-bold text-blue-400 mb-2">
+                      300+
+                    </div>
+                    <div className="text-gray-300">Tab switches per day</div>
+                    <div className="text-sm text-gray-400 mt-2">
+                      That's every 2-3 minutes during work hours
+                    </div>
+                  </div>
+                  <div className="bg-gray-800 p-6 rounded-lg">
+                    <div className="text-5xl font-bold text-blue-400 mb-2">
+                      2.1 hrs
+                    </div>
+                    <div className="text-gray-300">
+                      Lost to context switching
+                    </div>
+                    <div className="text-sm text-gray-400 mt-2">
+                      500+ hours per year wasted
+                    </div>
+                  </div>
+                  <div className="bg-gray-800 p-6 rounded-lg">
+                    <div className="text-5xl font-bold text-blue-400 mb-2">
+                      23 min
+                    </div>
+                    <div className="text-gray-300">To regain deep focus</div>
+                    <div className="text-sm text-gray-400 mt-2">
+                      After each interruption
+                    </div>
+                  </div>
+                </div>
+                <p className="mt-8 text-center text-xl text-gray-200">
+                  This isn't just annoying—it's costing you{" "}
+                  <strong>12.5 full workweeks</strong> per year.
+                </p>
+              </section>
+
+              {/* Section 4: Better Way */}
+              <section id="better-way" className="p-8 rounded-lg">
+                <div className="text-center mb-12">
+                  <div className="text-5xl mb-4">✨</div>
+                  <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                    There's a Better Way
+                  </h2>
+                  <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    What if your AI assistant lived <em>inside</em> every
+                    webpage you visit? No switching. No copying. No broken flow.
                   </p>
                 </div>
-                <ul className="space-y-3 text-gray-700 text-lg mb-8 list-disc list-inside">
-                  <li>
-                    Built-in Browser AI (Leveraging efficient on-device
-                    processing).
-                  </li>
-                  <li>Gemini</li>
-                  <li>OpenAI (ChatGPT)</li>
-                  <li>Claude</li>
-                </ul>
-                <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                  This section is essential right after a feature demonstration.
-                  It explains the core technology that makes the "Writer's
-                  Toolkit" so powerful: the ability to integrate and switch
-                  between multiple Large Language Models (LLMs) like Gemini,
-                  OpenAI, and Claude. It emphasizes the flexibility to choose
-                  the best engine for any writing task (e.g., creative writing
-                  vs. formal summarization).
-                </p>
+
                 <img
-                  className="mt-10 rounded-lg mb-10"
-                  src="/assets/image3.png"
-                  alt="img3"
+                  className="rounded-lg mb-10 shadow-lg"
+                  src="/assets/betterway.png"
+                  alt="Helix AI sidebar interface showing contextual assistance"
                 />
               </section>
 
-              <section id="telescopes" className=" p-8 rounded-lg">
+              {/* Section 5: Day After Helix */}
+              <section id="day-after" className="p-8 rounded-lg">
                 <h2 className="text-4xl font-bold text-gray-900 mb-8">
-                  The Four "Telescopes" : A Unified, Adaptable User Experience
+                  The Same Scenarios, Transformed With Helix AI
                 </h2>
-                <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                  Recognizing that a single interface doesn't fit every
-                  workflow, Helix AI introduces four distinct UI "Telescopes,"
-                  each designed for a specific mode of interaction, ensuring the
-                  AI assistant is always available but never intrusive:
-                </p>
-                <ul className="space-y-6 text-gray-700 text-lg">
-                  <li>
-                    <strong className="block text-gray-900 mb-2">
-                      The Selection Popup:
-                    </strong>
-                    For instant, frictionless action. Highlight any text on a
-                    page and a small popup instantly appears, offering immediate
-                    commands like summarize, prompt, rewrite, explain, or
-                    translate. It's the micro-tool for quick, contextual edits
-                    and analysis.
-                  </li>
-                  <li>
-                    <strong className="block text-gray-900 mb-2">
-                      The Floating Telescope:
-                    </strong>
-                    A movable mini-console that stays on top of your content.
-                    This is the quick prompt engine, perfect for iterative
-                    tweaks, running small snippets of code, or generating text
-                    without losing sight of your primary task.
-                  </li>
-                  <li>
-                    <strong className="block text-gray-900 mb-2">
-                      The Sidepanel Telescope:
-                    </strong>
-                    The persistent workspace. This is the clean, focused hub
-                    where all the extension's settings, history, and persistent
-                    chats live. It maintains context for the current active tab,
-                    making it ideal for in-depth research sessions.
-                  </li>
-                  <li>
-                    <strong className="block text-gray-900 mb-2">
-                      The Writer Popup:
-                    </strong>
-                    A dedicated drafting space focused solely on content
-                    creation. Use it to compose emails with tone options, draft
-                    professional blog posts, or craft social media replies, all
-                    powered by your chosen AI model.
-                  </li>
-                </ul>
-                     <div className="mt-8">
-                  <img
-                    src="/assets/blog2img3.png"
-                    alt="img3"
-                    className="w-full rounded-lg"
-                  />
+                <div className="space-y-8">
+                  {/* Scenario 1 After */}
+                  <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
+                    <p className="text-gray-700 text-lg mb-4 font-semibold">
+                      ⏰ 9:47 AM: Reading Article With Helix
+                    </p>
+                    <p className="text-gray-600 mb-4">
+                      You see a complex term. Here's what happens:
+                    </p>
+                    <ul className="space-y-2 text-gray-600 ml-6">
+                      <li>→ Highlight the term</li>
+                      <li>→ Right-click → "Explain this"</li>
+                      <li>→ Instant answer appears in sidebar</li>
+                      <li>→ Keep reading—you never left the page</li>
+                    </ul>
+                    <div className="mt-4 p-4 bg-green-100 rounded">
+                      <p className="text-green-700 font-semibold">
+                        ⚡ Time: 3 seconds
+                      </p>
+                      <p className="text-green-700">
+                        ✅ Still reading. Flow intact.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Scenario 2 After */}
+                  <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
+                    <p className="text-gray-700 text-lg mb-4 font-semibold">
+                      ⏰ 11:23 AM: Writing Email With Helix
+                    </p>
+                    <p className="text-gray-600 mb-4">
+                      Your draft needs professional polish:
+                    </p>
+                    <ul className="space-y-2 text-gray-600 ml-6">
+                      <li>→ Click Helix writer icon in your email field</li>
+                      <li>→ Type or paste your draft</li>
+                      <li>→ Select "Professional tone"</li>
+                      <li>→ Click "Insert"</li>
+                      <li>→ Done—still in your email tab</li>
+                    </ul>
+                    <div className="mt-4 p-4 bg-green-100 rounded">
+                      <p className="text-green-700 font-semibold">
+                        ⚡ Time: 8 seconds
+                      </p>
+                      <p className="text-green-700">
+                        ✅ No tab switch required
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Scenario 3 After */}
+                  <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
+                    <p className="text-gray-700 text-lg mb-4 font-semibold">
+                      ⏰ 2:15 PM: Foreign Product Specs With Helix
+                    </p>
+                    <p className="text-gray-600 mb-4">
+                      Product description in another language:
+                    </p>
+                    <ul className="space-y-2 text-gray-600 ml-6">
+                      <li>→ Select the text</li>
+                      <li>→ Click "Translate to English"</li>
+                      <li>→ Read translation in sidebar</li>
+                      <li>→ Done</li>
+                    </ul>
+                    <div className="mt-4 p-4 bg-green-100 rounded">
+                      <p className="text-green-700 font-semibold">
+                        ⚡ Time: 2 seconds
+                      </p>
+                      <p className="text-green-700">
+                        ✅ Context maintained. Purchase decision made.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-10 p-8 bg-[#3D0B4D] text-white rounded-lg text-center">
+                  <h3 className="text-2xl font-bold mb-4">
+                    Time Saved Per Day: 1 hour 58 minutes
+                  </h3>
+                  <p className="text-lg text-purple-200">
+                    That's almost a full workweek recovered every month.
+                  </p>
                 </div>
               </section>
 
-             
-              <section id="conclusion" className=" p-8 rounded-lg">
+              {/* Section 6: Features */}
+              <section id="features" className="p-8 rounded-lg">
+                <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">
+                  Why Developers & Creators Are Switching to Helix
+                </h2>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition">
+                    <div className="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                      <span className="text-2xl">✨</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                      Free Built-in AI (Yes, Really)
+                    </h3>
+                    <p className="text-gray-600 mb-4">
+                      Chrome has Gemini Nano built-in. Helix unlocks it—giving
+                      you ChatGPT-level responses completely free. Or connect
+                      your own API keys for premium models.
+                    </p>
+                    <p className="text-sm text-purple-600 font-semibold">
+                      💎 No subscription. No credit card. No limits.
+                    </p>
+                  </div>
+
+                  <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition">
+                    <div className="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                      <span className="text-2xl">🖼️</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                      Attach Images from Any Page
+                    </h3>
+                    <p className="text-gray-600 mb-4">
+                      See a diagram, chart, or product photo? Right-click → "Add
+                      to chat" → Ask questions about it. No downloading, no
+                      uploading.
+                    </p>
+                    <p className="text-sm text-green-600 font-semibold">
+                      🎯 Multimodal AI without the hassle
+                    </p>
+                  </div>
+
+                  <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition">
+                    <div className="bg-orange-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                      <span className="text-2xl">🎤</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                      Just Speak Your Question
+                    </h3>
+                    <p className="text-gray-600 mb-4">
+                      Too lazy to type? Click the mic and ask. Perfect for
+                      accessibility, multitasking, or when you're just tired of
+                      typing.
+                    </p>
+                    <p className="text-sm text-orange-600 font-semibold">
+                      🔊 Voice-first AI assistant built for real work
+                    </p>
+                  </div>
+                </div>
+
+                <img
+                  className="mt-10 rounded-lg mb-10 shadow-lg"
+                  src="/assets/switchingimg.png"
+                  alt="Helix AI features demonstration showing sidebar and context menu"
+                />
+              </section>
+
+              {/* Section 8: Quick Win */}
+              <section id="quick-win" className="p-8 rounded-lg">
                 <h2 className="text-4xl font-bold text-gray-900 mb-8">
-                  Conclusion : Transform Your Browsing Experience Today
+                  Your First 5 Minutes With Helix
                 </h2>
                 <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
-                  <p>
-                    Helix AI represents a thoughtful and powerful leap forward
-                    in browser technology. By prioritizing user privacy while
-                    simultaneously offering the most versatile suite of AI
-                    features available—including a multi-model engine and
-                    adaptable interfaces—it stands as the essential tool for any
-                    knowledge worker, researcher, or content creator.
-                  </p>
-                  <p>
-                    Stop compromising your security for speed. Install Helix AI
-                    and begin browsing, researching, and creating with
-                    unparalleled intelligence and peace of mind.
-                  </p>
-                  <p>
-                    Ready to elevate your workflow? Find Helix AI on the Chrome
-                    Web Store and experience the fusion of privacy and power.
+                  <div className="flex items-start gap-4">
+                    <div className="bg-[#3D0B4D] text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">
+                      1
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-2">
+                        Install the Extension
+                      </p>
+                      <p className="text-gray-600">
+                        Click the install button, pin Helix to your toolbar. No
+                        account required for core features. Takes 30 seconds.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="bg-[#3D0B4D] text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">
+                      2
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-2">
+                        Try the Selection Popup
+                      </p>
+                      <p className="text-gray-600">
+                        Open any article, highlight a paragraph, click
+                        "Summarize" or "Explain." Watch the magic happen in real
+                        time.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="bg-[#3D0B4D] text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">
+                      3
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-2">
+                        Attach an Image
+                      </p>
+                      <p className="text-gray-600">
+                        Right-click any image on the web and choose "Add to
+                        Helix chat." Ask questions about charts, diagrams, or
+                        product photos.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="bg-[#3D0B4D] text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">
+                      4
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-2">
+                        Use Voice Input
+                      </p>
+                      <p className="text-gray-600">
+                        Click the microphone icon and speak your question.
+                        Perfect when you're multitasking or just don't feel like
+                        typing.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="bg-[#3D0B4D] text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">
+                      5
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-2">
+                        Save or Copy Results
+                      </p>
+                      <p className="text-gray-600">
+                        Copy the AI response directly into your doc, email, or
+                        notes—all without leaving the tab you're working in.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 p-6 bg-blue-50 border-l-4 border-blue-500 rounded-r-lg">
+                  <p className="text-gray-700 text-lg">
+                    <strong>
+                      Most users realize within those first 5 minutes
+                    </strong>{" "}
+                    that the old way of hopping between AI tabs simply doesn't
+                    make sense anymore.
                   </p>
                 </div>
               </section>
 
-              <section id="tryhelix" className="p-8 rounded-lg">
-                <h2 className="text-4xl font-bold text-gray-900 mb-8">
-                  Try Helix AI Now
+              {/* Section 9: Conclusion */}
+              <section
+                id="conclusion"
+                className="p-8 rounded-lg bg-gradient-to-br from-[#3D0B4D] to-[#5A1A6D] text-white"
+              >
+                <h2 className="text-4xl font-bold mb-6 text-center">
+                  Stop Losing 2 Hours a Day to Tab Switching
                 </h2>
+                <div className="space-y-6 text-lg leading-relaxed text-purple-100 mb-8">
+                  <p>
+                    Helix AI proves that the best AI assistant is the one that
+                    lives where you already work. By eliminating context
+                    switching, preserving flow states, and respecting your
+                    privacy, it transforms browsing into a continuous,
+                    intelligent workflow.
+                  </p>
+                  <p>
+                    You've seen the numbers. You've seen the scenarios. You know
+                    the frustration of broken flow and wasted time. The question
+                    isn't whether you need a better solution—it's why you're
+                    still tolerating the old way.
+                  </p>
+                  <p className="text-xl font-semibold text-white">
+                    Install Helix in 30 seconds. If it doesn't change how you
+                    work, uninstall with one click. But you won't.
+                  </p>
+                </div>
 
+                <div className="text-center">
+                  <a
+                    href="https://chromewebstore.google.com/detail/helix-ai/bjgjagobelgbchmjkgeimeadpnbgldid"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center bg-white text-[#3D0B4D] px-10 py-5 rounded-lg font-bold text-xl hover:bg-gray-100 transition shadow-2xl transform hover:scale-105"
+                  >
+                    📥 Get Helix Free →
+                  </a>
+
+                  <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-purple-200">
+                    <div className="flex items-center gap-2">
+                      <span>✅</span>
+                      <span>Free forever</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span>✅</span>
+                      <span>No credit card</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span>✅</span>
+                      <span>30-second setup</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Final CTA Section */}
+              <section className="p-8 rounded-lg border-2 border-[#3D0B4D]">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  Ready to Reclaim Your Time?
+                </h2>
                 <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                  Experience the next evolution of browser-based intelligence
-                  today. Helix AI gives you contextual awareness, multi-model
-                  flexibility, and privacy-first architecture — all inside your
-                  Chrome browser.
+                  Join thousands of developers, researchers, writers, and
+                  knowledge workers who've already made the switch. Experience
+                  AI assistance that actually fits your workflow—not the other
+                  way around.
                 </p>
-
-                <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                  Whether you’re researching, writing, analysing visuals, or
-                  managing your daily workflow, Helix AI helps you move faster
-                  while keeping your data secure.
-                </p>
-
-                <a
-                  href="https://chromewebstore.google.com/detail/helix-ai/bjgjagobelgbchmjkgeimeadpnbgldid"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-8 py-4 bg-[#3D0B4D] text-white text-lg font-semibold rounded-lg shadow hover:bg-[#5A1A6D] transition-colors"
-                >
-                  Install Helix AI (Free)
-                </a>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="https://chromewebstore.google.com/detail/helix-ai/bjgjagobelgbchmjkgeimeadpnbgldid"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center bg-[#3D0B4D] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#5A1A6D] transition shadow-lg"
+                  >
+                    Install Helix AI (Free)
+                  </a>
+                  <button
+                    onClick={() =>
+                      window.open("https://youtu.be/Bn1N3yHpawc", "_blank")
+                    }
+                    className="inline-flex items-center justify-center border-2 border-[#3D0B4D] text-[#3D0B4D] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-purple-300 transition"
+                  >
+                    Watch Demo Video
+                  </button>
+                </div>
               </section>
             </article>
           </div>
         </div>
       </div>
 
+      {/* Floating CTA */}
       {showCTA && (
         <div className="fixed bottom-10 right-4 bg-[#c9b6ff] shadow-xl border border-purple-300 rounded-2xl p-4 w-64 z-50 animate-fadeIn block">
           <div className="flex justify-between items-start">
@@ -562,21 +877,62 @@ const HelixAIWrite: React.FC = () => {
           </div>
 
           <p className="mt-1 text-gray-700 text-sm">
-            Free forever for core features. Smart AI for your browser.
+            Stop losing 2 hours daily to tab switching. Free forever.
           </p>
 
           <a
             href="https://chromewebstore.google.com/detail/helix-ai/bjgjagobelgbchmjkgeimeadpnbgldid"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 block bg-black text-white text-center py-2 rounded-xl font-medium"
+            className="mt-3 block bg-[#3D0B4D] text-white text-center py-2 rounded-xl font-medium hover:bg-[#5A1A6D] transition"
           >
-            Install Free
+            Install Free →
           </a>
         </div>
       )}
+
+      {/* Footer */}
+
+      <footer
+        className="border-t border-gray-200 mt-16"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgb(61, 11, 77), rgb(55, 57, 121), rgb(39, 97, 156), rgb(34, 135, 182), rgb(69, 173, 201))",
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="text-center">
+            <p className="text-white mb-4">
+              {" "}
+              <a href="#" className="text-white hover:underline">
+                FAQ
+              </a>{" "}
+              or{" "}
+              <a href="#" className="text-white hover:underline">
+                contact support
+              </a>
+              .
+            </p>
+            <div className="flex justify-center gap-6 text-sm text-white">
+              {" "}
+              <a
+                href="https://ascodelabs.com/company/privacy-policy"
+                className="hover:text-gray-300"
+              >
+                Privacy Policy
+              </a>
+              <a
+                href="https://ascodelabs.com/company/terms-and-services"
+                className="hover:text-gray-300"
+              >
+                Terms of Service
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
 
-export default HelixAIWrite;
+export default HelixAIBlogPost1;

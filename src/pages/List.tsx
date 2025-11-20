@@ -6,5 +6,7 @@ export default function List() {
         <Link to='/pages/blog/helix-ai-intro'>Helix AI Introduction</Link>
         <br />
         <Link to='/pages/blog/helix-ai-write'>Helix AI Write</Link>
+        <br />
+        <Link to='/pages/blog/helix-ai-3rdblog'>Helix 3rd Blog</Link>
     </div>
 }
